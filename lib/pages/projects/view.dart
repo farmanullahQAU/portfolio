@@ -142,16 +142,50 @@ class ProjectWidget extends StatelessWidget {
         child: Align(
             alignment: Alignment.center,
             child: controller.currentProject == projectModel
-                ? Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color(primaryColor).withOpacity(0.8)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
-                      child: Text(
-                        projectModel.name,
-                        style: context.textTheme.titleSmall,
+                ? InkWell(
+                    onTap: () {
+                      Get.defaultDialog(
+                          title: projectModel.name,
+                          content: Builder(
+                            builder: (_) => SizedBox(
+                              width: context.width * 0.5,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    height: context.width * 0.2,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: AssetImage(
+                                              "${projectModel.imagePath}")),
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                  ),
+                                  Text(
+                                    projectModel.descriptions,
+                                    style: context.textTheme.titleLarge,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          onConfirm: () {
+                            Get.back();
+                          });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Color(primaryColor).withOpacity(0.8)),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        child: Text(
+                          projectModel.name,
+                          style: context.textTheme.titleSmall,
+                        ),
                       ),
                     ),
                   )

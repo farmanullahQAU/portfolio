@@ -27,19 +27,17 @@ class SkillsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-        int itemsPerRow = ResponsiveWidget.isLargeScreen(context) ? 7 : 
-        
-        
-        ResponsiveWidget.isMediumScreen(context)?5:
-        4;
+    int itemsPerRow = ResponsiveWidget.isLargeScreen(context)
+        ? 7
+        : ResponsiveWidget.isMediumScreen(context)
+            ? 5
+            : 4;
     final int rowCount = (_skills.length / itemsPerRow).ceil();
     return Container(
-         color: Theme.of(context).cardColor,
-                  padding:
-                
-                ResponsiveWidget.isSmallScreen(context)?EdgeInsets.symmetric(horizontal: context.width*0.1):
-                 EdgeInsets.symmetric(horizontal: context.width*0.2),
+      color: Theme.of(context).cardColor,
+      padding: ResponsiveWidget.isSmallScreen(context)
+          ? EdgeInsets.symmetric(horizontal: context.width * 0.1)
+          : EdgeInsets.symmetric(horizontal: context.width * 0.2),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,61 +46,44 @@ class SkillsView extends StatelessWidget {
           const PageTitle(
             title: "CHECKOUT MY ",
             subtitle: "SKILLS",
-            
           ),
 
           // Text("Delve into my three-year expertise in Flutter development, crafting seamless mobile and web applications. My skills prioritize innovation, delivering intuitive user experiences that navigate the dynamic digital landscape. Explore the specifics below to uncover the tools driving my contributions.",style: context.textTheme.titleLarge,),
 
-                  Expanded(
-                    // padding: EdgeInsets.symmetric(
-                    //     horizontal: itemsPerRow == 2
-                    //         ? (context.width * 0.2)-50
-                    //         : context.width * 0.1,
-                    //     vertical: 50),
-                    child: ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: rowCount,
-                      itemBuilder: (context, rowIndex) {
-                        final startIndex = rowIndex * itemsPerRow;
-                        final endIndex =
-                            (startIndex + itemsPerRow) <= _skills.length
-                                ? (startIndex + itemsPerRow)
-                                : _skills.length;
-              
-                        final rowItems =
-                            _skills.sublist(startIndex, endIndex);
-              
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          child: Row(
-                            mainAxisAlignment: 
-                            ResponsiveWidget.isSmallScreen(context)?
-                            MainAxisAlignment.center:
-                            
-                            
-                            MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: rowItems
-                                .map((model) =>
-                             Flexible(
-                               child: SkillIcon(
-                                                 skill: model,
-                                               ),
-                             ))
-                                .toList(),
-                          ),
-                        );
-                      },
-                    ),
-                  )
- 
+          ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: rowCount,
+            itemBuilder: (context, rowIndex) {
+              final startIndex = rowIndex * itemsPerRow;
+              final endIndex = (startIndex + itemsPerRow) <= _skills.length
+                  ? (startIndex + itemsPerRow)
+                  : _skills.length;
+
+              final rowItems = _skills.sublist(startIndex, endIndex);
+
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: Row(
+                  mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: rowItems
+                      .map((model) => Flexible(
+                            child: SkillIcon(
+                              skill: model,
+                            ),
+                          ))
+                      .toList(),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
   }
-
-
 }
 
 class SkillIcon extends StatefulWidget {
@@ -119,8 +100,11 @@ class _SkillIconState extends State<SkillIcon> {
 
   @override
   Widget build(BuildContext context) {
-
-    final width=ResponsiveWidget.isSmallScreen(context)?context.width*0.2:ResponsiveWidget.isMediumScreen(context)?context.width*0.2:context.width*0.1;
+    final width = ResponsiveWidget.isSmallScreen(context)
+        ? context.width * 0.2
+        : ResponsiveWidget.isMediumScreen(context)
+            ? context.width * 0.2
+            : context.width * 0.1;
 
     return MouseRegion(
       onEnter: (_) {
@@ -143,15 +127,14 @@ class _SkillIconState extends State<SkillIcon> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-         Align(
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset(widget.skill["path"],
-                      width: width,
-                      height: width/2,
-
-                  
-                          ),
-                    ),
+            Align(
+              alignment: Alignment.center,
+              child: SvgPicture.asset(
+                widget.skill["path"],
+                width: width,
+                height: width / 2,
+              ),
+            ),
             Align(
               alignment: Alignment.center,
               child: Text(
@@ -167,9 +150,9 @@ class _SkillIconState extends State<SkillIcon> {
 
   BoxDecoration? _decoration() {
     return BoxDecoration(
-      color: context.width < 600 ? null : Colors.black38,
+      color: Colors.black38,
       // border: Border.all(color: Colors.white10),
-      borderRadius: context.width < 600 ? null : BorderRadius.circular(15),
+      borderRadius: BorderRadius.circular(15),
       boxShadow: isHovered
           ? [
               BoxShadow(

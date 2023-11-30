@@ -19,7 +19,8 @@ class ProjectsViewController extends GetxController {
       ProjectModel(
           name: "Bitnadaq",
           imagePath: "assets/images/p1.jpeg",
-          descriptions: "Crypto Exchange"),
+          descriptions:
+              "BitNasdaq is a cryptocurrency exchange that is powered by AI and blockchain technology. It is designed to be a user-friendly and secure platform for buying, selling, and trading cryptocurrencies. BitNasdaq also offers staking rewards for users who hold certain cryptocurrencies. "),
       ProjectModel(
           name: "Expense Manager",
           imagePath: "assets/images/p1.jpeg",

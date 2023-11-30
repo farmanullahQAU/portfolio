@@ -15,8 +15,6 @@ class _AboutViewState extends State<AboutView>
     with SingleTickerProviderStateMixin {
   late final AnimationController _aboutAnimationController =
       AnimationController(
-
-
     value: 0.1,
     duration: const Duration(milliseconds: 1000),
     vsync: this,
@@ -67,21 +65,20 @@ class _AboutViewState extends State<AboutView>
                 'As a developer, I have experience working with Flutter for mobile app development. I am proficient in using Flutter\'s widget-based UI framework to create responsive and visually appealing user interfaces.\n',
           ),
           TextSpan(
-            text:
-               "I have also demonstrated proficiency in writting smart contracts on the Ethereum blockchain. I bring early experience in successfully executing NFT creation and deployment projects."
-          ),
-      
+              text:
+                  "I have also demonstrated proficiency in writting smart contracts on the Ethereum blockchain. I bring early experience in successfully executing NFT creation and deployment projects."),
         ],
       ),
     );
     return Container(
-       color: Theme.of(context).cardColor,
-                padding:
-                
-                ResponsiveWidget.isSmallScreen(context)?EdgeInsets.symmetric(horizontal: context.width*0.1):
-                 EdgeInsets.symmetric(horizontal: context.width*0.2),
-      child: Center(
-        child: ScaleTransition(
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+        ),
+        padding: ResponsiveWidget.isSmallScreen(context)
+            ? EdgeInsets.symmetric(horizontal: context.width * 0.1)
+            : EdgeInsets.symmetric(horizontal: context.width * 0.2),
+        child: Center(
+            child: ScaleTransition(
           scale: aboutAnimation,
           child: ResponsiveWidget(
             largeScreen: Center(
@@ -100,10 +97,7 @@ class _AboutViewState extends State<AboutView>
                 ),
               ),
             ),
-      
           ),
-        ),
-      ),
-    );
+        )));
   }
 }
