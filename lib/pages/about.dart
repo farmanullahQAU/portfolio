@@ -45,9 +45,7 @@ class _AboutViewState extends State<AboutView>
   @override
   Widget build(BuildContext context) {
     var aboutInfo = RichText(
-      textAlign: ResponsiveWidget.isLargeScreen(context)
-          ? TextAlign.start
-          : TextAlign.justify,
+      textAlign: TextAlign.start,
       text: TextSpan(
         style: context.textTheme.titleLarge,
         children: const <TextSpan>[
@@ -80,21 +78,19 @@ class _AboutViewState extends State<AboutView>
         child: Center(
             child: ScaleTransition(
           scale: aboutAnimation,
-          child: ResponsiveWidget(
-            largeScreen: Center(
-              child: SizedBox(
-                width: context.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const PageTitle(
-                      title: "SOME INFO ",
-                      subtitle: "ABOUT ME",
-                    ),
-                    aboutInfo
-                  ],
-                ),
+          child: Center(
+            child: SizedBox(
+              width: context.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const PageTitle(
+                    title: "SOME INFO ",
+                    subtitle: "ABOUT ME",
+                  ),
+                  aboutInfo
+                ],
               ),
             ),
           ),

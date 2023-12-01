@@ -10,8 +10,6 @@ class SkillsView extends StatelessWidget {
     {"path": "assets/images/dart.svg", "title": "Dart"},
     {"path": "assets/images/firebase.svg", "title": "Firebase"},
     {"path": "assets/images/java.svg", "title": "Java"},
-    {"path": "assets/images/springboot.svg", "title": "Spring Boot"},
-    {"path": "assets/images/mysql.svg", "title": "MySql"},
     {"path": "assets/images/swagger.svg", "title": "Swagger"},
     //
     {"path": "assets/images/git.svg", "title": "Git"},
@@ -20,7 +18,6 @@ class SkillsView extends StatelessWidget {
     {"path": "assets/images/graphql.svg", "title": "GraphQL"},
     {"path": "assets/images/rest.svg", "title": "Rest API"},
     {"path": "assets/images/material.svg", "title": "Material"},
-    {"path": "assets/images/photoshop.svg", "title": "Photoshop"},
   ];
 
   SkillsView({Key? key}) : super(key: key);

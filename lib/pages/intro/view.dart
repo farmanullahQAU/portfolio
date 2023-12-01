@@ -34,6 +34,7 @@ class IntroView extends StatelessWidget {
             columnCrossAxisAlignment: CrossAxisAlignment.center,
             columnMainAxisAlignment: MainAxisAlignment.center,
             rowSpacing: 32,
+            columnSpacing: 32,
             children: [
               ResponsiveRowColumnItem(
                 rowFlex: 1,
@@ -56,108 +57,99 @@ class IntroView extends StatelessWidget {
               ResponsiveRowColumnItem(
                 rowFlex: 2,
                 rowFit: FlexFit.tight,
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: ResponsiveWidget.isLargeScreen(context)
-                        ? CrossAxisAlignment.start
-                        : CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(controller.greetings,
-                          style: context.textTheme.titleSmall
-                              ?.copyWith(letterSpacing: 2)),
-                      const SizedBox(
-                        height: 32,
-                      ),
-                      Text(
-                        "FARMAN ULLAH ",
-                        style: context.theme.textTheme.displaySmall,
-                      ),
-                      const SizedBox(
-                        height: 32,
-                      ),
-                      SizedBox(
-                        child: RichText(
-                            textAlign: ResponsiveWidget.isLargeScreen(context)
-                                ? TextAlign.start
-                                : TextAlign.justify,
-                            text: TextSpan(
-                              text: "A ",
-                              style: context.theme.textTheme.titleLarge,
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: "${controller.role} ",
+                child: Column(
+                  crossAxisAlignment: ResponsiveWidget.isLargeScreen(context)
+                      ? CrossAxisAlignment.start
+                      : CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(controller.greetings,
+                        style: context.textTheme.titleSmall
+                            ?.copyWith(letterSpacing: 2)),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    SizedBox(
+                      child: RichText(
+                          textAlign: TextAlign.start,
+                          text: TextSpan(
+                            text: "FARMAN ULLAH \n",
+                            style: context.theme.textTheme.displaySmall,
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: "A",
                                   style: context.textTheme.titleLarge
-                                      ?.copyWith(color: Colors.red),
-                                ),
-                                TextSpan(
-                                  text: controller.aboutDesc,
-                                  style: context.theme.textTheme.titleLarge,
-                                ),
-                              ],
+                                      ?.copyWith(color: Colors.red)),
+                              TextSpan(
+                                text: "${controller.role} ",
+                                style: context.textTheme.titleLarge
+                                    ?.copyWith(color: Colors.red),
+                              ),
+                              TextSpan(
+                                text: controller.aboutDesc,
+                                style: context.theme.textTheme.titleLarge,
+                              ),
+                            ],
+                          )),
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    Row(
+                      mainAxisAlignment: ResponsiveWidget.isLargeScreen(context)
+                          ? MainAxisAlignment.start
+                          : MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: 200,
+                            height: 50,
+                            child: MaterialButtonWidget(
+                              borderColor: Colors.red,
+                              color: Colors.redAccent.shade400,
+                              hoverColor: const Color.fromARGB(255, 32, 31, 31),
+                              child: const Text(
+                                "Resume",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {
+                                controller.openUrl(resumeUrl);
+                              },
                             )),
-                      ),
-                      const SizedBox(
-                        height: 32,
-                      ),
-                      Row(
-                        mainAxisAlignment:
-                            ResponsiveWidget.isLargeScreen(context)
-                                ? MainAxisAlignment.start
-                                : MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                              width: 200,
-                              height: 50,
-                              child: MaterialButtonWidget(
-                                borderColor: Colors.red,
-                                color: Colors.redAccent.shade400,
-                                hoverColor:
-                                    const Color.fromARGB(255, 32, 31, 31),
-                                child: const Text(
-                                  "Resume",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                onPressed: () {
-                                  controller.openUrl(resumeUrl);
-                                },
-                              )),
-                          MaterialButton(
-                              height: 50,
-                              minWidth: 50,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(500),
-                              ),
-                              // color: Colors.white,
-                              hoverColor: Colors.red,
-                              hoverElevation: 12,
-                              onPressed: () {
-                                controller.openUrl(githubUrl);
-                              },
-                              child: const FaIcon(
-                                FontAwesomeIcons.github,
-                              )),
-                          MaterialButton(
-                              height: 50,
-                              minWidth: 50,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(500),
-                              ),
-                              // color: Colors.white,
-                              hoverColor: Colors.red,
-                              hoverElevation: 12,
-                              onPressed: () {
-                                controller.openUrl(linkedIn);
-                              },
-                              child: const FaIcon(
-                                FontAwesomeIcons.linkedin,
-                              ))
-                        ],
-                      ),
-                    ],
-                  ),
+                        MaterialButton(
+                            height: 50,
+                            minWidth: 50,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(500),
+                            ),
+                            // color: Colors.white,
+                            hoverColor: Colors.red,
+                            hoverElevation: 12,
+                            onPressed: () {
+                              controller.openUrl(githubUrl);
+                            },
+                            child: const FaIcon(
+                              FontAwesomeIcons.github,
+                            )),
+                        MaterialButton(
+                            height: 50,
+                            minWidth: 50,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(500),
+                            ),
+                            // color: Colors.white,
+                            hoverColor: Colors.red,
+                            hoverElevation: 12,
+                            onPressed: () {
+                              controller.openUrl(linkedIn);
+                            },
+                            child: const FaIcon(
+                              FontAwesomeIcons.linkedin,
+                            ))
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
