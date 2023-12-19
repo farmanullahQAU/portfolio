@@ -132,7 +132,7 @@ class ProjectWidget extends StatelessWidget {
     return GetBuilder<ProjectsViewController>(builder: (controller) {
       return Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.red),
+          border: Border.all(color: Color(primaryColor)),
           image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage("${projectModel.imagePath}")),

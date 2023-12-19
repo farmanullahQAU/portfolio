@@ -39,7 +39,7 @@ class IntroView extends StatelessWidget {
               ResponsiveRowColumnItem(
                 rowFlex: 1,
                 child: CircleAvatar(
-                  backgroundColor: Colors.red,
+                  backgroundColor: Color(primaryColor),
                   radius: context.width * 0.1 + 2,
                   child: Container(
                     width: context.width * 0.2,
@@ -77,13 +77,12 @@ class IntroView extends StatelessWidget {
                             style: context.theme.textTheme.displaySmall,
                             children: <TextSpan>[
                               TextSpan(
-                                  text: "A",
-                                  style: context.textTheme.titleLarge
-                                      ?.copyWith(color: Colors.red)),
+                                  text: "A ",
+                                  style: context.textTheme.titleLarge),
                               TextSpan(
                                 text: "${controller.role} ",
                                 style: context.textTheme.titleLarge
-                                    ?.copyWith(color: Colors.red),
+                                    ?.copyWith(color: Color(primaryColor)),
                               ),
                               TextSpan(
                                 text: controller.aboutDesc,
@@ -103,17 +102,19 @@ class IntroView extends StatelessWidget {
                         SizedBox(
                             width: 200,
                             height: 50,
-                            child: MaterialButtonWidget(
-                              borderColor: Colors.red,
-                              color: Colors.redAccent.shade400,
-                              hoverColor: const Color.fromARGB(255, 32, 31, 31),
-                              child: const Text(
-                                "Resume",
-                                style: TextStyle(color: Colors.white),
-                              ),
+                            child: MaterialButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                  side: BorderSide(color: Color(primaryColor))),
+                              color: context.theme.cardColor,
+                              hoverColor: Color(primaryColor),
                               onPressed: () {
                                 controller.openUrl(resumeUrl);
                               },
+                              child: Text(
+                                "Resume",
+                                style: TextStyle(color: Colors.white),
+                              ),
                             )),
                         MaterialButton(
                             height: 50,
@@ -123,7 +124,7 @@ class IntroView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(500),
                             ),
                             // color: Colors.white,
-                            hoverColor: Colors.red,
+                            hoverColor: Color(primaryColor),
                             hoverElevation: 12,
                             onPressed: () {
                               controller.openUrl(githubUrl);
@@ -139,7 +140,7 @@ class IntroView extends StatelessWidget {
                               borderRadius: BorderRadius.circular(500),
                             ),
                             // color: Colors.white,
-                            hoverColor: Colors.red,
+                            hoverColor: Color(primaryColor),
                             hoverElevation: 12,
                             onPressed: () {
                               controller.openUrl(linkedIn);

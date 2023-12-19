@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:port/constants.dart';
 
 import '../responsive_wraper.dart';
 
@@ -15,21 +16,17 @@ class PageTitle extends StatelessWidget {
           : CrossAxisAlignment.start,
       children: [
         Wrap(
-          direction: 
-              Axis.horizontal,
-          
+          direction: Axis.horizontal,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             Container(
               width: 50,
               height: 1,
-              color: Colors.red,
+              color: Color(primaryColor),
             ),
-
-              const SizedBox(
-                width: 30,
-              ),
-      
+            const SizedBox(
+              width: 30,
+            ),
             Text(
               "$title",
               style: Theme.of(context)

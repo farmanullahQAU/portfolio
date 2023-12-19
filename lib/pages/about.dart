@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:port/constants.dart';
 import 'package:port/responsive_wraper.dart';
 
 import '../widgets/title.dart';
@@ -55,7 +56,7 @@ class _AboutViewState extends State<AboutView>
           TextSpan(
             text: 'Quaid Azam University, Islamabadn ',
             style: TextStyle(
-              color: Colors.red, // Set text color to red
+              color: Color(primaryColor), // Set text color to red
             ),
           ),
           TextSpan(

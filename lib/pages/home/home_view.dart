@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:port/constants.dart';
 import 'package:port/pages/home/controller.dart';
 import 'package:port/responsive_wraper.dart';
 
@@ -32,7 +33,7 @@ class HomePage extends GetView<HomeViewController> {
                       Container(
                           width: context.width,
                           // decoration: const BoxDecoration(
-                          //     color: Colors.red,
+                          //     color: Color(primaryColor),
                           //     image: DecorationImage(
                           //         fit: BoxFit.cover,
                           //         image: AssetImage(
@@ -70,7 +71,7 @@ class HomePage extends GetView<HomeViewController> {
                                       decoration: TextDecoration.underline,
                                       decorationStyle:
                                           TextDecorationStyle.dotted,
-                                      decorationColor: Colors.red),
+                                      decorationColor: Color(primaryColor)),
                                 ),
                                 useIndicator: true,
 
@@ -79,7 +80,7 @@ class HomePage extends GetView<HomeViewController> {
                                 groupAlignment: 0.0,
                                 // backgroundColor:
                                 //     Theme.of(context).navigationRailTheme.backgroundColor,
-                                indicatorColor: Colors.red,
+                                // indicatorColor: Color(primaryColor),
                                 extended: controller.isHovered,
                                 destinations: const [
                                   NavigationRailDestination(
@@ -144,7 +145,7 @@ class HomePage extends GetView<HomeViewController> {
                                 Icons.brightness_7,
                                 key: UniqueKey(),
                                 size: 40,
-                                color: Colors.yellow,
+                                color: Color(primaryColor),
                               )
                             : Icon(
                                 Icons.brightness_3,

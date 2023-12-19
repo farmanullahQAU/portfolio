@@ -9,14 +9,20 @@ class SkillsView extends StatelessWidget {
     {"path": "assets/images/flutter.svg", "title": "Flutter"},
     {"path": "assets/images/dart.svg", "title": "Dart"},
     {"path": "assets/images/firebase.svg", "title": "Firebase"},
+
+    {"path": "", "title": "Blockchian"},
+    {"path": "", "title": "Solidity"},
+    {"path": "assets/images/rest.svg", "title": "Rest API"},
+    {"path": "", "title": "Smart contracts"},
+
+    {"path": "", "title": "NFT"},
+
     {"path": "assets/images/java.svg", "title": "Java"},
     {"path": "assets/images/swagger.svg", "title": "Swagger"},
     //
     {"path": "assets/images/git.svg", "title": "Git"},
-    {"path": "assets/images/linux.svg", "title": "Linux"},
     {"path": "assets/images/bitcoin.svg", "title": "Crypto"},
     {"path": "assets/images/graphql.svg", "title": "GraphQL"},
-    {"path": "assets/images/rest.svg", "title": "Rest API"},
     {"path": "assets/images/material.svg", "title": "Material"},
   ];
 
